@@ -22,5 +22,5 @@ roslaunch base_planner navtest.launch
 
 点击上栏的 2D Nav Goal并选定目标位置，结果如下图所示：
 <div align="center">
-  <img src="base_planner/result/result.gif" alt="result" width="60%" height="100%" />
+  <img src="base_planner/result/result.gif" alt="result" width="100%" height="100%" />
 </div>
