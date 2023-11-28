@@ -1,0 +1,25 @@
+<launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find base_planner)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find base_planner)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find base_planner)/param/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find base_planner)/param/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find base_planner)/param/base_local_planner_params.yaml" command="load" />
+    </node>
+
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find base_planner)/maps/my_world.yaml" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find base_planner)/launch/config.rviz" />
+    
+    
+    <include file="$(find base_planner)/launch/amcl.launch" />
+
+    <param name="robot_description" command="$(find xacro)/xacro $(find base_planner)/urdf/xacro/my_base_camera_laser.urdf.xacro" />
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find base_planner)/world/my_world.world" />
+    </include>
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model mycar -param robot_description"  />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" />
+</launch>
