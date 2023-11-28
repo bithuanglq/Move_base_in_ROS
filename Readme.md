@@ -12,6 +12,13 @@ Change your absolute path of **my_world.pgm** in file (_base_planner/maps/my_wor
 Put this repo in your catkin_ws/src
 ```
 cd catkin_ws
+mkdir src
+cd src
+```
+Then download this repo and cmake
+```
+git clone git@github.com:bithuanglq/Move_base_in_ROS.git
+cd ..
 catkin_make
 source devel/setup.bash
 roslaunch base_planner navtest.launch
