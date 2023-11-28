@@ -11,7 +11,7 @@ sudo apt install ros-noetic-navigation ros-noetic-map-server
 Change your absolute path of **my_world.pgm** in file (_base_planner/maps/my_world.yaml_)
 
 ### Run
-Put this repo in your catkin_ws/src
+Put this repo under your catkin_ws/src
 ```
 cd catkin_ws
 mkdir src
