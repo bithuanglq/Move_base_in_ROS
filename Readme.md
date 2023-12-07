@@ -1,7 +1,7 @@
 ### Prerequisite
 Ubuntu20.04  
 ROS-Noetic  
-gazebo-11  
+Gazebo-11  
 
 
 ### Packages
